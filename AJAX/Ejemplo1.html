@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 1 AJAX</title>
+</head>
+
+<body>
+
+    <input type="button" onclick="ejecutarAJAX()" value="Precioname para ver la magia :)">
+    <div id="info"></div>
+
+    <script type="text/javascript">
+        function ejecutarAJAX() {
+            var ajaxRequest = new XMLHttpRequest();
+            ajaxRequest.onreadystatechange = function () {
+                if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
+                    document.getElementById("info").innerHTML = ajaxRequest.responseText;
+                }
+            }
+
+            ajaxRequest.open("GET", "documento.txt", true);
+            ajaxRequest.send();
+        }
+        //var ajaxRequest;
+        //Navegador viejo
+        /*
+        if(window.XMLHttpRequest){//Verfica que es un navegador nuevo
+            ajaxRequest=new XMLHttpRequest();
+        }else{
+            //Navegador viejo
+            ajaxRequest=new ActiveXObject("Microsoft.XMLHttpRequest");
+        }
+        */
+        // Primera etapa Inicializacion
+        // Se establecen los valores
+        // Se envian los datos al navegador
+        // Se procesan
+        // Finalizan
+
+    </script>
+
+</body>
+
+</html>
