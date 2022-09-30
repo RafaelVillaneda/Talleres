@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async: true"></script>
+    <title>Ejemplo 2 Taller DOJO (Animacion)</title>
+    <style>
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script type="text/javascript">
+        require([
+            "dojo/dom",
+            "dojo/fx",
+            "dojo/domReady!"
+            //fx para animaciones el ready es para que carge despudes de que el documento haya cargado por completo y el dom para manipular algo existente
+        ],function(dom,fx){
+            var saludo=dom.byId("saludo");
+            saludo.innerHTML += " Desde dojo";
+            //Animacion
+            fx.slideTo({
+                node: saludo,
+                top: window.innerHeight / 2.5,
+                left: window.innerWidth / 2.5
+            }).play();
+        })
+    </script>
+</head>
+<body>
+    <h1 id="saludo">Hola</h1>
+</body>
+</html>
