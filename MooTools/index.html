@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="MooTools-Core-1.6.0.js"></script>
+    <style type="text/css">
+        #btn{
+            width:100px;
+            height: 100px;
+            background-color: #000;
+            margin: 12px;
+            cursor: pointer;
+        }
+        
+    </style>
+    <title>MooTools</title>
+</head>
+<body>
+    <label>Color:</label>
+    <input type="text" name="caja1" size="15" id="cajaColor">
+    <label>Ancho:</label>
+    <input type="text" name="caja2" size="15" id="cajaAncho">
+    <label>Alto:</label>
+    <input type="text" name="caja3" size="15" id="cajaAlto">
+    <div id="btn" onclick="cambio()"></div>
+    <div id="mostrar"></div>
+    
+    <script type="text/javascript">
+        var cajacolor=$('cajaColor');
+        var cajaAncho=$('cajaAncho');
+        var cajaAlto=$('cajaAlto');
+        var btn=$('btn');
+        var mostrar=$('mostrar');
+
+        function cambio (){
+            
+            if((cajacolor.get('value').length==3||cajacolor.get('value').length==6)&& cajaAncho.get('value')!="" && cajaAlto.get('value')!=""){
+
+                btn.setStyle('background-color',("#"+cajacolor.get('value')));
+                btn.setStyle('width',cajaAncho.get('value')+"px");
+                btn.setStyle('height',cajaAlto.get('value')+"px");
+                mostrar();
+
+             }else{
+                alert("Alguno de los valores no es valido");
+             }
+        }
+
+        function mostrar (){
+            mostrar.set('text',"Color: "+btn.getStyle("background-color")+"---Ancho: "+btn.getStyle("width")+"---Alto"+btn.getStyle("height"));
+        }
+
+    </script>
+</body>
+</html>
