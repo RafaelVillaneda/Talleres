@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 1</title>
+    <link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css">
+    <script src="http://cdn.webix.com/edge/webix.js"></script>
+</head>
+<body>
+    
+
+    <script type="text/javascript">
+
+
+        var meses = [
+            { ventas: "20", mes: "Enero", color: "red" },
+            { ventas: "30", mes: "Febrero", color: "orange" },
+            { ventas: "50", mes: "Marzo", color: "yellow" },
+            { ventas: "40", mes: "Abril", color: "green" },
+            { ventas: "70", mes: "Mayo", color: "lightblue" },
+            { ventas: "80", mes: "Junio", color: "blue" },
+            { ventas: "60", mes: "Julio", color: "purple" },
+
+        ];
+
+        webix.ui({
+            rows: [
+
+                {
+                    id: "charts",
+                    cols: [
+                        {
+                            view: "chart",
+                            id: "chart",
+                            type: "pie",
+                            value: "#ventas#",
+                            color: "#color#",
+                            label: "#mes#",
+                            pieInnerText: "#ventas#",
+                            shadow: 0,
+                            data: meses,
+                            with: 20
+                        }
+                    ]
+                },
+                {
+                    view: "button", width: 230, value: "Exportar a PDF como tabla", click: function () {
+                        webix.toPDF("chart", { autowidth: true });
+                    }
+                },
+                {
+                    view: "button", width: 230, value: "Exportar a PDF como imagen", click: function () {
+                        webix.toPDF("chart", { display: "image" });
+                    }
+                },
+                {
+                    view: "button", width: 320, value: "Exportar a PDF chart como imagen y tabla", click: function () {
+                        webix.toPDF("chart", { display: "all", autowidth: true });
+                    }
+                }
+
+
+            ]
+
+        });
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.webix.com/edge/webix.css" type="text/css">
+    <script src="https://cdn.webix.com/edge/webix.js" type="text/javascript"></script>
+    <title>Ejemplo 3</title>
+</head>
+<body>
+    <script type="text/javascript">
+        webix.ui({
+            view: "colorselect",
+            value: "#8D5DC6"
+        })
+        webix.ui({
+            view: "calendar",
+            weekNumber: true,
+            timepicker: true,
+        })
+        webix.ui({
+            view: "form",
+            elements: [{
+                view: "datepicker",
+                inputWidth: 200,
+                label: "select day",
+                labelWidth: 90
+            }]
+        })
+
+        
+        
+    </script>
+    
+</body>
+</html>
